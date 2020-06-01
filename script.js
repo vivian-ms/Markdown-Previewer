@@ -50,8 +50,14 @@ $(function() {
     breaks: true
   });
 
+  const renderer = new marked.Renderer();
+  // Insert target="_blank" into <a> tags
+  renderer.link = function (href, title, text) {
+    return `<a target="_blank" href="${href}">${text}</a>`;
+  }
+
   $('#editor').val(placeholder);
-  $('#preview').html(marked(placeholder));
+  $('#preview').html(marked(placeholder, {renderer: renderer}));
 
   // Set cursor to beginning of textarea
   $('#editor').get(0).setSelectionRange(0, 0);
