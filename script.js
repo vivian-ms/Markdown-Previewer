@@ -40,8 +40,22 @@ Markdown parsed with **[Marked.js](https://marked.js.org/#/README.md#README.md)*
 
 
 $(function() {
+  marked.setOptions({
+    // Highlight code blocks
+    highlight: function(code, language) {
+      const validLanguage = hljs.getLanguage(language) ? language : 'plaintext';
+      return hljs.highlight(validLanguage, code).value;
+    },
+    // Allows line breaks with return button
+    breaks: true
+  });
+
   $('#editor').val(placeholder);
   $('#preview').html(marked(placeholder));
+
+  // Set cursor to beginning of textarea
+  $('#editor').get(0).setSelectionRange(0, 0);
+  $('#editor').focus();
 
   $('#editor').on('input', evt => {
     let markdown = $('#editor').val();
