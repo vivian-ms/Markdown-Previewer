@@ -9,19 +9,21 @@
   </head>
   <body>
     <div class="container-fluid">
-      <h1 class="text-center">Markdown Previewer</h1>
-      <div id="editor_container">
-        <label for="editor" class="h6">Editor</label>
-        <textarea id="editor" class="form-control"></textarea>
-      </div>
-      <div id="preview_container">
-        <h6>Preview</h6>
-        <div id="preview" class="border"></div>
-      </div>
-      <footer class="small">
+      <h1 class="text-center p-2 mb-0">Markdown Previewer</h1>
+      <div class="row no-gutters">
+        <div id="editor-container" class="col-12 col-lg-6">
+          <label for="editor" class="h6 px-2 py-1 text-muted">Editor</label>
+          <textarea id="editor" class="form-control p-3 shadow-none"></textarea>
+        </div>  <!-- End #editor-container -->
+        <div id="preview-container" class="col-12 col-lg-6">
+          <h6 class="px-2 py-1 text-muted">Preview</h6>
+          <div id="preview" class="p-3"></div>
+        </div>  <!-- End #preview-container -->
+      </div>  <!-- End .row -->
+      <footer class="small p-2">
         <a href="https://www.freecodecamp.org/learn/front-end-libraries/front-end-libraries-projects/build-a-markdown-previewer" target="_blank">Markdown Previewer Project</a> created for freeCodeCamp
       </footer>
-    </div>
+    </div>  <!-- End .container-fluid -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/1.0.0/marked.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
