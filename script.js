@@ -40,9 +40,13 @@ Markdown parsed with **[Marked.js](https://marked.js.org/#/README.md#README.md)*
 
 
 $(function() {
+  setStyle();
   toggleView();
 
-  $(window).on('resize', toggleView);
+  $(window).on('resize', evt => {
+    setStyle();
+    toggleView();
+  });
 
   $('#toggle_button').on('click', evt => {
     $('#editor-container, #preview-container').toggle();
@@ -76,6 +80,14 @@ $(function() {
     $('#preview').html(marked(markdown));
   });
 });
+
+
+function setStyle() {
+  let h1_height = $('h1').outerHeight(true);
+  let label_height = $('label').outerHeight(true);
+  let footer_height = $('footer').outerHeight(true);
+  $('#editor, #preview').css('height', `calc(99vh - ${h1_height}px - ${label_height}px - ${footer_height}px)`);
+}
 
 
 function toggleView() {
