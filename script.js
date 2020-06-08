@@ -40,6 +40,14 @@ Markdown parsed with **[Marked.js](https://marked.js.org/#/README.md#README.md)*
 
 
 $(function() {
+  toggleView();
+
+  $(window).on('resize', toggleView);
+
+  $('#toggle_button').on('click', evt => {
+    $('#editor-container, #preview-container').toggle();
+  });
+
   marked.setOptions({
     // Highlight code blocks
     highlight: function(code, language) {
@@ -68,3 +76,21 @@ $(function() {
     $('#preview').html(marked(markdown));
   });
 });
+
+
+function toggleView() {
+  if ($(window).width() < 992) {
+    // Show toggle button on screens < 992px
+    $('#toggle_button').show();
+    // If window was >=992px and < 992px after resize, show editor and hide preview
+    // If window was < 992px and still < 992px after resize, keep the current view
+    if ($('#editor-container').is(':visible') && $('#preview-container').is(':visible')) {
+      $('#editor-container').show();
+      $('#preview-container').hide();
+    }
+    // Hide toggle button and show both editor and preview on screens >= 992px
+  } else {
+    $('#editor-container, #preview-container').show();
+    $('#toggle_button').hide();
+  }
+}
