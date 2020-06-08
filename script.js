@@ -50,6 +50,7 @@ $(function() {
 
   $('#toggle_button').on('click', evt => {
     $('#editor-container, #preview-container').toggle();
+    toggleIcon();
   });
 
   marked.setOptions({
@@ -100,9 +101,20 @@ function toggleView() {
       $('#editor-container').show();
       $('#preview-container').hide();
     }
+    toggleIcon();
     // Hide toggle button and show both editor and preview on screens >= 992px
   } else {
     $('#editor-container, #preview-container').show();
     $('#toggle_button').hide();
+  }
+}
+
+
+function toggleIcon() {
+  if ($('#editor-container').is(':visible')) {
+    $('#toggle_button span').removeClass('fa-edit').addClass('fa-eye');
+  }
+  if ($('#preview-container').is(':visible')) {
+    $('#toggle_button span').removeClass('fa-eye').addClass('fa-edit');
   }
 }
