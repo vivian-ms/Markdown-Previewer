@@ -48,7 +48,7 @@ $(function() {
     toggleView();
   });
 
-  $('#toggle_button').on('click', evt => {
+  $('#toggle_button').outerHeight($('label').outerHeight(true)).on('click', evt => {
     $('#editor-container, #preview-container').toggle();
     toggleIcon();
   });
