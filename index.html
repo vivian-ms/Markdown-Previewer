@@ -10,7 +10,7 @@
   <body>
     <div class="container-fluid">
       <h1 class="text-center p-2 mb-0">Markdown Previewer</h1>
-      <div class="row no-gutters">
+      <div class="row no-gutters position-relative">
         <div id="editor-container" class="col-12 col-lg-6">
           <label for="editor" class="h6 px-2 py-1 text-muted">Editor</label>
           <textarea id="editor" class="form-control p-3 shadow-none"></textarea>
@@ -19,6 +19,7 @@
           <h6 class="px-2 py-1 text-muted">Preview</h6>
           <div id="preview" class="p-3"></div>
         </div>  <!-- End #preview-container -->
+        <button type="button" id="toggle_button" class="position-absolute btn btn-outline-primary">Toggle</button>
       </div>  <!-- End .row -->
       <footer class="small p-2">
         <a href="https://www.freecodecamp.org/learn/front-end-libraries/front-end-libraries-projects/build-a-markdown-previewer" target="_blank">Markdown Previewer Project</a> created for freeCodeCamp
